@@ -662,7 +662,3 @@ kubectl get storageclass
 **בהצלחה! 🚀**
 
 אם יש שאלות או בעיות, בדוק את הסעיף [פתרון בעיות](#פתרון-בעיות) או פתח issue.
-
-#   f a s t a p i - m y s q l - k 8 s  
- #   f a s t a p i - m y s q l - k 8 s  
- 
