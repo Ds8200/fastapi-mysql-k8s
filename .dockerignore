@@ -1,0 +1,6 @@
+venv/
+.env
+.gitignore
+README.md
+Dockerfile
+k8s/

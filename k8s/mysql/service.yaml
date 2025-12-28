@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql-service
+  # Service מספק DNS פנימי ל-MySQL
+  # Pods אחרים יכולים להתחבר דרך השם "mysql-service"
+spec:
+  selector:
+    # מתאים ל-Pods עם התווית הזו
+    app: mysql
+  ports:
+    - port: 3306
+      # פורט MySQL הסטנדרטי
+      targetPort: 3306
+      protocol: TCP
+  # ClusterIP = שירות פנימי בלבד (לא נגיש מחוץ ל-cluster)
+

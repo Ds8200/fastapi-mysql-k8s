@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql
+  # Deployment מנהל את ה-Pods של MySQL
+  # מבטיח ש-MySQL תמיד רץ ומתאושש מכשלים
+spec:
+  replicas: 1
+  # רק instance אחד של MySQL (בגלל ReadWriteOnce)
+  selector:
+    matchLabels:
+      app: mysql
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+        - name: mysql
+          # תמונת MySQL גרסה 8
+          image: mysql:8.0
+          # הזרקת משתני סביבה מ-ConfigMap ו-Secret
+          envFrom:
+            - configMapRef:
+                name: mysql-config
+            - secretRef:
+                name: mysql-secret
+          ports:
+            - containerPort: 3306
+          # חיבור ה-Volume לשמירת נתונים
+          volumeMounts:
+            - mountPath: /var/lib/mysql
+              # נתיב בתוך ה-Container לשמירת נתוני MySQL
+              name: mysql-data
+      volumes:
+        - name: mysql-data
+          # שימוש ב-PVC שנוצר קודם
+          persistentVolumeClaim:
+            claimName: mysql-pvc
+

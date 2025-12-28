@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-config
+  # ConfigMap מכיל קונפיגורציה לא סודית
+  # ניתן לשנות בלי rebuild של התמונות
+data:
+  # שם מסד הנתונים שייווצר
+  MYSQL_DATABASE: testdb
+  # שם המשתמש שייווצר
+  MYSQL_USER: user
+

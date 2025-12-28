@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mysql-pvc
+  # PVC (Persistent Volume Claim) מבטיח שמירת נתונים
+  # גם אם ה-Pod נופל או מתחלף, הנתונים נשמרים
+spec:
+  accessModes:
+    # ReadWriteOnce = רק Pod אחד יכול לכתוב בו זמנית
+    - ReadWriteOnce
+  resources:
+    requests:
+      # גודל הדיסק המבוקש (5GB)
+      storage: 5Gi
+
