@@ -9,4 +9,6 @@ data:
   MYSQL_DATABASE: testdb
   # שם המשתמש שייווצר
   MYSQL_USER: user
+  # שם ה-Service של MySQL ב-Kubernetes (DNS פנימי)
+  MYSQL_HOST: mysql-service 
 
