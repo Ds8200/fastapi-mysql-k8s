@@ -391,9 +391,10 @@ kubectl describe svc <service-name>
 ```bash
 # כניסה ל-MySQL Pod
 kubectl exec -it deployment/mysql -- bash
-
-# הרצת פקודה ב-MySQL Pod
-kubectl exec deployment/mysql -- mysql -u root -prootpassword
+# בתוך ה bash להריץ
+mysql -u root -p
+# להכניס סיסמה כדי ליכנס ל db ולשלוח שאילתות
+rootpassword
 
 # כניסה ל-FastAPI Pod
 kubectl exec -it deployment/fastapi -- bash
