@@ -395,6 +395,10 @@ kubectl exec -it deployment/mysql -- bash
 mysql -u root -p
 # להכניס סיסמה כדי ליכנס ל db ולשלוח שאילתות
 rootpassword
+# או להיכנס ל user שאליו השרת מחובר
+mysql -u user -p
+# להכניס סיסמה של ה user כדי ליכנס ל db ולשלוח שאילתות
+password
 
 # כניסה ל-FastAPI Pod
 kubectl exec -it deployment/fastapi -- bash
